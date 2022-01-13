@@ -104,13 +104,15 @@ export default function AccountManagementPage() {
         <div className="accounts-wrap">
             <h2>Quản lí tài khoản</h2>
             <Form 
+            style={{paddingTop: "20px", paddingBottom: "20px"}}
            form={form}
            autoComplete="off"
            colon={false}
            onFinish={onFinish}
-   
+           labelAlign="left"
            scrollToFirstError
            requiredMark={false}
+      method="POST"
       
            validateTrigger="onChange"
            labelCol={{ sm: 24, md: 24, lg: 8, xl: 8 }}

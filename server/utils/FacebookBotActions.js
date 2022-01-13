@@ -22,12 +22,12 @@ class FacebookDriver{
         try{
             
             
-            while(true){
+           
                 try{
                     await this.#driver.wait(until.elementLocated({name: 'email'}), 200000)
                     await this.#driver.findElement(By.name('email')).sendKeys(username);
                     await this.#driver.findElement(By.name('pass')).sendKeys(password, Key.ENTER);
-                    await this.#driver.get('https://facebook.com/profile.php');
+                   
                     await this.#driver.wait(until.elementLocated(By.xpath("//form[contains(@action, 'logout')]")),50000);
                     await this.#driver.sleep(2000);
                     await this.#driver.findElement(By.xpath("//body")).click();
@@ -41,14 +41,22 @@ class FacebookDriver{
                     await this.#driver.findElement(By.xpath('//form//span[contains(text(),"Đăng")]')).submit();
 
                     
-                    break;
+               
                 }catch(err){
                     console.log(err);       
+                    await this.#driver.executeScript("document.title = 'Đóng sau 20 giây'");
+                    await this.#driver.sleep(20000);
+                    await this.#driver.close();
+                    await this.#driver.quit();
                 }
-            }
+        
             
         }catch(err){
             console.log(err);
+            await this.#driver.executeScript("document.title = 'Đóng sau 20 giây'");
+            await this.#driver.sleep(20000);
+            await this.#driver.close();
+            await this.#driver.quit();
         }
 
         try{
@@ -70,12 +78,12 @@ class FacebookDriver{
         try{
             
 
-            while(true){
+          
                 try{
                     await this.#driver.wait(until.elementLocated({name: 'email'}), 200000)
                     await this.#driver.findElement(By.name('email')).sendKeys(username);
                     await this.#driver.findElement(By.name('pass')).sendKeys(password, Key.ENTER);
-                    await this.#driver.get('https://facebook.com/profile.php');
+                  
                     await this.#driver.wait(until.elementLocated(By.xpath("//form[contains(@action, 'logout')]")),50000);
                     
                     await this.#driver.sleep(2000);
@@ -103,15 +111,28 @@ class FacebookDriver{
                     .sendKeys(text);
                     await this.#driver.wait(until.elementLocated(By.xpath(`//form//img[contains(@alt,'${postInfo.image}')]`), 500000));
                     await this.#driver.findElement(By.xpath('//form//span[contains(text(),"Đăng")]')).submit(); 
-                    break;
+                   
                 }catch(err){
+
+
                     console.log(err);       
+
+
+                    await this.#driver.executeScript("document.title = 'Đóng sau 20 giây'");
+                    await this.#driver.sleep(20000);
+                    await this.#driver.close();
+                    await this.#driver.quit();
                 }
-            }
+       
             
             
         }catch(err){
             console.log(err);
+
+            await this.#driver.executeScript("document.title = 'Đóng sau 20 giây'");
+            await this.#driver.sleep(20000);
+            await this.#driver.close();
+            await this.#driver.quit();
         }
 
         try{

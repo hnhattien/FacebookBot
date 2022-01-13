@@ -17,6 +17,9 @@ color: #000;
         height: max-content;
     }
     & > li.has-child-list{
+        svg{
+            display: none;
+        }
         &:hover ul{
             display: block;
         }    
@@ -24,6 +27,7 @@ color: #000;
             color: unset;
             background-color: unset !important;
         }
+
     }
 }
     @media ${media.lg}{
@@ -33,6 +37,9 @@ color: #000;
             position: relative;
         }
         & > li.has-child-list{
+            svg{
+                display: unset;
+            }
             display: flex;
             ul{
                 display: none;
@@ -93,7 +100,7 @@ color: #000;
     & li:hover{
         background-color: #E40B7B;
         
-        color: #ffffff !important;
+        color: black;
     }
     & li a:hover{
         
@@ -161,7 +168,7 @@ export default function Navigation() {
         <NavItemListWrap>
             <NavItemList>
                 <li>  
-                    <NavLink to={"/"}>
+                    <NavLink to={"/"} onClick={() => {document.querySelector("#navbar-wrap").classList.remove("show");}}>
                          <CgSmartHomeWashMachine></CgSmartHomeWashMachine>
                         <span className="text">Home</span>
                     </NavLink>
@@ -175,7 +182,7 @@ export default function Navigation() {
                     <IoMdArrowDropright></IoMdArrowDropright>
                     <Dropdown className="dropdown">
                        <li>
-                           <NavLink to={'/accounts'}>
+                           <NavLink to={'/accounts'} onClick={() => {document.querySelector("#navbar-wrap").classList.remove("show");}}>
                                Quản lí tài khoản
                            </NavLink>
                        </li>
@@ -191,13 +198,8 @@ export default function Navigation() {
                     <IoMdArrowDropright></IoMdArrowDropright>
                     <Dropdown className="dropdown">
                        <li>
-                           <NavLink to={'/post'}>
+                           <NavLink to={'/post'} onClick={() => {document.querySelector("#navbar-wrap").classList.remove("show");}}>
                                Quản lí bài viết
-                           </NavLink>
-                       </li>
-                       <li>
-                           <NavLink to={'/post/upload'}>
-                               Đăng bài viết
                            </NavLink>
                        </li>
                      

@@ -41,7 +41,7 @@ export default function PostFormSection({resetImageField}) {
                         label="Nội dung bài viết"
                         name="text"
                     >
-                       <Input />
+                       <Input.TextArea />
                     </FormItem>
                 </Col>
             </Row>

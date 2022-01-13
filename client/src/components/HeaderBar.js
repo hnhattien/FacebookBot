@@ -1,10 +1,18 @@
 
 import React, { useCallback, useEffect, useState, memo } from 'react'
 import styled from 'styled-components';
-
+import { FiMenu } from 'react-icons/fi';
 
 
 import  media, { getAnyMedia }  from '../responsive/media';
+const Logo = styled.h1`
+@media ${media.xxs}{
+    flex: 1 0 auto;
+}
+@media ${media.lg}{
+    flex: initial;
+}
+`
 
 
 const MenuButton = styled.span`
@@ -27,29 +35,23 @@ function HeaderBar() {
         if(marginLeft){
           setcontentlayoutmargin(marginLeft);
         }
-        
-        
     })
 
     const showMobileNavBar = () => {
         document.querySelector("#navbar-wrap").classList.toggle("show");
     }
     useEffect(()=>{
-     
-      
-        setSizeContentLayout();
-      
-      
-        
-        
+        setSizeContentLayout();  
     })
 
     
 const bgUrl = "https://pickywallpapers.com/img/2020/7/facebook-hd-wallpaper-2087-2122-hd-wallpapers.jpg"
     return (
-        <div  contentlayoutmargin={contentlayoutmargin}>
-            <MenuButton onClick={showMobileNavBar}></MenuButton>
-            <h1 style={{textAlign: "center"}}>Auto bot Facebook App</h1>
+        <div  contentlayoutmargin={contentlayoutmargin} style={{display: "flex", alignItems: "center", justifyContent: "center", height: "100%"}}>
+            <MenuButton onClick={showMobileNavBar}>
+            <FiMenu size={40}></FiMenu>
+            </MenuButton>
+            <Logo style={{textAlign: "center"}}>Auto bot Facebook App</Logo>
         </div>
        
                 

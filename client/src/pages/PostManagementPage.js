@@ -255,6 +255,8 @@ export default function PostManagementPage() {
 <h2>Quản lí tài khoản</h2>
 <Form 
 
+style={{paddingTop: "20px", paddingBottom: "20px"}}
+
            form={form}
            autoComplete="off"
            colon={false}
@@ -262,7 +264,7 @@ export default function PostManagementPage() {
    
            scrollToFirstError
            requiredMark={false}
-      
+      labelAlign="left"
            validateTrigger="onChange"
            labelCol={{ sm: 24, md: 24, lg: 8, xl: 8 }}
            wrapperCol={{ sm: 24, md: 24, lg: 16, xl: 16 }}
